@@ -1,1 +1,0 @@
-$("div.test").my_slider()
