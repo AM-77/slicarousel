@@ -81,10 +81,10 @@
                 }else{
 
                     if(current_slide >= 0){
-                        
+
                         current_slide-- 
                         if (current_slide == -1 ){
-                            $(this.children()[0]).css({"left" : "-500%"})
+                            $(this.children()[0]).css({"left" : "-" + (params.nbr_slides * 100) + "%"})
                             current_slide = params.nbr_slides - 1 
 
                             $(this.children()[0]).animate({
@@ -138,7 +138,7 @@
                         
                     current_slide-- 
                     if (current_slide == -1 ){
-                        $(_this.children()[0]).css({"left" : "-500%"})
+                        $(_this.children()[0]).css({"left" : "-" + (params.nbr_slides * 100) + "%"})
                         current_slide = params.nbr_slides - 1 
 
                         $(_this.children()[0]).animate({
