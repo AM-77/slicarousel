@@ -60,7 +60,7 @@
                 if(!direction){
 
                     if(current_slide < params.nbr_slides){
-
+                        
                         current_slide++ 
                         if (current_slide == params.nbr_slides ){
                             $(this.children()[0]).animate({
@@ -108,6 +108,51 @@
         // Adding the arrows functionality.
         if(params.arrows) {
             this.append("<div class='"+params.class_name_prefix +"arrows arrows'><span class='prev'><</span><span class='next'>></span></div>")
+        
+            var _this = $(".test")
+
+            $(".arrows .next").on("click", function(){
+                if(current_slide < params.nbr_slides){
+
+                    current_slide++ 
+                    if (current_slide == params.nbr_slides ){
+                        $(_this.children()[0]).animate({
+                            "left": - (current_slide * 100) + "%"
+                        }, "fast", function(){
+                            $(this).css({"left" : "0%"})
+                        })
+
+                        current_slide = 0
+                    }else{
+                        $(_this.children()[0]).animate({
+                            "left": - (current_slide * 100) + "%"
+                        }, "fast")
+                    }
+
+                }
+            })
+
+
+            $(".arrows .prev").on("click", function(){
+                if(current_slide >= 0){
+                        
+                    current_slide-- 
+                    if (current_slide == -1 ){
+                        $(_this.children()[0]).css({"left" : "-500%"})
+                        current_slide = params.nbr_slides - 1 
+
+                        $(_this.children()[0]).animate({
+                            "left": - (current_slide * 100) + "%"
+                        }, "fast")
+
+                    }else{
+                        $(_this.children()[0]).animate({
+                            "left": - (current_slide * 100) + "%"
+                        }, "fast")
+                    }
+                    
+                }
+            })
         }
 
     }
