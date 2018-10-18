@@ -1,0 +1,32 @@
+.arrows span{
+    position: absolute;
+    color: rgb(51, 51, 51);
+    z-index: 10;
+    top: 50%;
+    height: 45px;
+    width: 45px;
+    background: rgba(199, 199, 199, 0.4);
+    border-radius: 50%;
+    border: 1px solid rgba(162, 162, 162, 0.5);
+    font-size: 26px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.7;
+    color: rgba(95, 93, 93, 0.5);
+    cursor: pointer;
+    transition: all 250ms cubic-bezier(0.25, 0.1, 0, 1.16)
+}
+
+.arrows span.prev{
+    left: 5%;
+}
+
+.arrows span.next{
+    right: 5%;
+}
+
+.arrows span:hover{
+    background: rgba(199, 199, 199, 0.65);
+    border: 1px solid rgba(162, 162, 162, 0.85);
+    color: rgba(95, 93, 93, 0.85);
+}
