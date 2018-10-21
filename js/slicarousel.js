@@ -15,6 +15,7 @@
         $(this.children()[0]).css({
             "width": ((params.nbr_slides+1)*100) + "%"
         })
+
         let i = 0
         while(i < params.nbr_slides){
             $(this.children()[0]).append("<div class='" + params.class_name_prefix + "slide " + params.class_name_prefix + "slide_"+ i +"'></div>")
@@ -176,7 +177,10 @@
         if(params.dot_nav){
             this.append("<div class='dot_nav'></div>")
             for (let i = 0; i < params.nbr_slides; i++) {
-                $(".dot_nav").append("<div class='dot dot-"+ i +"' slide-nbr='"+i+"'></div>")     
+                if( i == 0)
+                    $(".dot_nav").append("<div class='dot dot-"+ i +" active' slide-nbr='"+i+"'></div>") 
+                else
+                    $(".dot_nav").append("<div class='dot dot-"+ i +"' slide-nbr='"+i+"'></div>")
             }
 
             $(".dot").each(function(){
