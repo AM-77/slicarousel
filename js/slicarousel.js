@@ -132,6 +132,13 @@
                         }, 250)
                     }
 
+                    $(".dot").each(function(){
+                        if($(this).hasClass('active'))
+                            $(this).removeClass('active')
+                    })
+
+                    $(".dot-"+current_slide).addClass("active")
+
                 }
             })
 
@@ -153,6 +160,13 @@
                             "left": - (current_slide * 100) + "%"
                         }, 250)
                     }
+
+                    $(".dot").each(function(){
+                        if($(this).hasClass('active'))
+                            $(this).removeClass('active')
+                    })
+
+                    $(".dot-"+current_slide).addClass("active")
                     
                 }
             })
