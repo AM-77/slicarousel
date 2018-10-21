@@ -102,7 +102,14 @@
                     }
 
                 }
-            }       
+            }  
+            
+            $(".dot").each(function(){
+                if($(this).hasClass('active'))
+                    $(this).removeClass('active')
+            })
+
+            $(".dot-"+current_slide).addClass("active")
         })
 
 
