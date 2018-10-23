@@ -3,10 +3,11 @@
     $.fn.my_slider=function(options){
         
         let default_options = {
-            "nbr_slides" : 5,
-            "class_name_prefix" : "s_",      // So that the user wont have to change the name of the classes already defined
-            "arrows" : true,
-            "dot_nav": true
+            "nbr_slides" : 5,               // The number of slides 
+            "class_name_prefix" : "s_",     // Avoid CSS classes mixed up
+            "arrows" : true,                // Enable the arrows navigation 
+            "dot_nav": true,                // Enable the dots navigation
+            "full_width": true              // width: 100%
         }
 
         let params = $.extend(default_options, options);
@@ -27,12 +28,12 @@
             "width": (100/(params.nbr_slides+1))+"%"
         })
 
-        let is_down = false
-        let current_slide = 0
-        let mousedown_position = 0
-        let mouseup_position = 0
-        let direction = true  // false: from the left to the right // true: means from the right to the left
+        let current_slide = 0           // the slide number where the mouse is in 
+        let mousedown_position = 0      // the silde number where the mouse starts grabbing 
+        let mouseup_position = 0        // the slide number where the mouse finished grabbing
+        let direction = true            // false: from the left to the right // true: means from the right to the left
         let parent_offset_left = 0
+
         $(this.children()[0]).mousedown((e)=>{
             is_down = true
 
@@ -104,12 +105,17 @@
                 }
             }  
             
-            $(".dot").each(function(){
-                if($(this).hasClass('active'))
-                    $(this).removeClass('active')
-            })
 
-            $(".dot-"+current_slide).addClass("active")
+            // If the dots navigation is enabled
+            if(params.dot_nav){
+                $(".dot").each(function(){
+                    if($(this).hasClass('active'))
+                        $(this).removeClass('active')
+                })
+
+                $(".dot-"+current_slide).addClass("active")
+            }
+
         })
 
 
@@ -140,13 +146,15 @@
                         }, 250)
                     }
 
-                    $(".dot").each(function(){
-                        if($(this).hasClass('active'))
-                            $(this).removeClass('active')
-                    })
+                    // If the dots navigation is enabled
+                    if(params.dot_nav){
+                        $(".dot").each(function(){
+                            if($(this).hasClass('active'))
+                                $(this).removeClass('active')
+                        })
 
-                    $(".dot-"+current_slide).addClass("active")
-
+                        $(".dot-"+current_slide).addClass("active")
+                    }
                 }
             })
 
@@ -169,13 +177,16 @@
                         }, 250)
                     }
 
-                    $(".dot").each(function(){
-                        if($(this).hasClass('active'))
-                            $(this).removeClass('active')
-                    })
+                    // If the dots navigation is enabled
+                    if(params.dot_nav){
+                        $(".dot").each(function(){
+                            if($(this).hasClass('active'))
+                                $(this).removeClass('active')
+                        })
 
-                    $(".dot-"+current_slide).addClass("active")
-                    
+                        $(".dot-"+current_slide).addClass("active")
+                    }
+
                 }
             })
         }
