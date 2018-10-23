@@ -4,23 +4,22 @@
     box-sizing: border-box
 }
 
-.test{
+.the_slider{
     display: block;
     height: 350px;
-    background: #efefef;
     overflow: hidden;
     width: 100%;
     position: relative;
 }
 
-.test .s_slide{
+.the_slider .s_slide{
     display: block;
     width: 100%;
     height: 100%;
     float: left;
 }
 
-.test .s_slider_container{
+.the_slider .s_slider_container{
     display: block;
     position: relative;
     width: 100%;
@@ -28,26 +27,26 @@
     cursor: pointer;
 }
 
-.test .s_slider_container:active{
+.the_slider .s_slider_container:active{
     cursor: -webkit-grabbing
 }
 
-.test .s_slide_0{
+.the_slider .s_slide_0{
     background: aquamarine
 }
 
-.test .s_slide_1{
+.the_slider .s_slide_1{
     background: #119955
 }
 
-.test .s_slide_2{
+.the_slider .s_slide_2{
     background: aquamarine
 }
 
-.test .s_slide_3{
+.the_slider .s_slide_3{
     background: crimson
 }
 
-.test .s_slide_4{
+.the_slider .s_slide_4{
     background: lightseagreen
 }

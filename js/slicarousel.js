@@ -227,6 +227,11 @@
 
         }
 
+
+        // handling the full width option
+        if(params.full_width){
+            $(this).css({"width": "100%"})
+        }
     }
 
     return this;
