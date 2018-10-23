@@ -7,10 +7,10 @@
 .test{
     display: block;
     height: 350px;
-    margin: 150px;
-    border-radius: 5px;
     background: #efefef;
-    overflow: hidden
+    overflow: hidden;
+    width: 100%;
+    position: relative;
 }
 
 .test .s_slide{
@@ -33,7 +33,7 @@
 }
 
 .test .s_slide_0{
-    background: darkviolet
+    background: aquamarine
 }
 
 .test .s_slide_1{
@@ -41,7 +41,7 @@
 }
 
 .test .s_slide_2{
-    background: #333333
+    background: aquamarine
 }
 
 .test .s_slide_3{
@@ -50,33 +50,4 @@
 
 .test .s_slide_4{
     background: lightseagreen
-}
-
-.test .dot_nav{
-    display: block;
-    height: 15px;
-    position: relative;
-    top: -30px;
-}
-
-.test .dot{
-    display: block;
-    width: 15px;
-    height: 15px;
-    background: #dfdfdf;
-    border: 2px solid #dfdfdf;
-    z-index: 10;
-    float: left;
-    border-radius: 50%;
-    margin: 0px 10px;
-    transition: all 250ms ease;
-}
-
-.test .dot:hover{
-    background: transparent;
-    cursor: pointer;
-}
-
-.test .dot.active{
-    background: transparent;
 }
