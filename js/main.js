@@ -1,1 +1,1 @@
-$("div.the_slider").my_slider()
+$("div.the_slider").slicarousel()
