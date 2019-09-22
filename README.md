@@ -1,6 +1,4 @@
-Slicarousel : A jQuery plug in
----------
+# Slicarousel : A jQuery plug in
 
-[1]: <https://github.com/MohamedAmineGriche/slicarousel>
+A fully responsive jQuery Slider plugin. [Demo](https://slicarousel.medamine.now.sh)
 
-_slicarousel a very basic and easy to use slicking carousel._
