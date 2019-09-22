@@ -12,12 +12,24 @@
                 "enabled": true, // Enable autoplay slider
                 "direction": "ltr" // direction right to left rtl or left to right ltr
             },
-            "speed": 2500
+            "delay": 2500, // The sliding delay in milliseconds
+            "speed": 500 // The sliding speed can be slow, normal, fast or customized in milliseconds
         }
 
+        // Handling the speed option
+        switch (default_options.speed) {
+            case "fast":
+                default_options.speed = 250
+                break;
 
-        // add slow normal fast speeds
+            case "normal":
+                default_options.speed = 500
+                break;
 
+            case "slow":
+                default_options.speed = 1000
+                break;
+        }
 
         let params = $.extend(default_options, options);
         this.append("<div class='" + params.class_name_prefix + "slider_container'></div>")
@@ -71,7 +83,7 @@
                         if (current_slide == params.nbr_slides) {
                             $(this.children()[0]).animate({
                                 "left": -(current_slide * 100) + "%"
-                            }, 250, function () {
+                            }, params.speed, function () {
                                 $(this).css({
                                     "left": "0%"
                                 })
@@ -80,7 +92,7 @@
                         } else {
                             $(this.children()[0]).animate({
                                 "left": -(current_slide * 100) + "%"
-                            }, 250)
+                            }, params.speed)
                         }
                     }
                 } else {
@@ -94,12 +106,12 @@
 
                             $(this.children()[0]).animate({
                                 "left": -(current_slide * 100) + "%"
-                            }, 250)
+                            }, params.speed)
 
                         } else {
                             $(this.children()[0]).animate({
                                 "left": -(current_slide * 100) + "%"
-                            }, 250)
+                            }, params.speed)
                         }
                     }
                 }
@@ -124,7 +136,7 @@
                 if (current_slide == params.nbr_slides) {
                     $(_this.children()[0]).animate({
                         "left": -(current_slide * 100) + "%"
-                    }, 250, function () {
+                    }, params.speed, function () {
                         $(this).css({
                             "left": "0%"
                         })
@@ -134,7 +146,7 @@
                 } else {
                     $(_this.children()[0]).animate({
                         "left": -(current_slide * 100) + "%"
-                    }, 250)
+                    }, params.speed)
                 }
 
                 // If the dots navigation is enabled
@@ -160,12 +172,12 @@
                     current_slide = params.nbr_slides - 1
                     $(_this.children()[0]).animate({
                         "left": -(current_slide * 100) + "%"
-                    }, 250)
+                    }, params.speed)
 
                 } else {
                     $(_this.children()[0]).animate({
                         "left": -(current_slide * 100) + "%"
-                    }, 250)
+                    }, params.speed)
                 }
                 // If the dots navigation is enabled
                 if (params.dot_nav) {
@@ -214,7 +226,7 @@
                         if (current_slide != $(this).attr('slide-nbr')) {
                             ($(".s_slider_container")).animate({
                                 "left": -($(this).attr('slide-nbr') * 100) + "%"
-                            }, Math.abs(current_slide - $(this).attr('slide-nbr')) * 250)
+                            }, Math.abs(current_slide - $(this).attr('slide-nbr')) * params.speed)
                             current_slide = $(this).attr('slide-nbr')
                         }
                     }
@@ -232,7 +244,7 @@
                     else
                         next_slide(_this)
 
-                }, params.speed)
+                }, params.delay)
 
                 _this.on("mouseenter", () => {
                     clearInterval(interval)
@@ -245,7 +257,7 @@
                         else
                             next_slide(_this)
 
-                    }, params.speed)
+                    }, params.delay)
                 })
             } else {
                 console.error("Error: options.autoplay.direction should be \"ltr\" or \"rtl\".")
